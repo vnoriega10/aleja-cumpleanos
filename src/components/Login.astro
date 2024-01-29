@@ -1,0 +1,77 @@
+
+<section class="flex justify-center items-center h-screen balloons">
+    <div class="w-80 bg-slate-50 py-4 h-80 rounded-lg shadow-xl shadow-slate-950/30">
+        <div class="absolute mt-[-92px] ml-[-67px]">
+            <img src="./public/img/sombrero-cumpleaños.png" alt="" class=" w-36 h-auto -rotate-6">
+        </div>
+        <h1 class="mt-4 text-center text-2xl text-slate-950 font-bold">Feliz cumpleaños</h1>
+        <p class="text-center text-sm text-purple-950/80 font-semibold">Inicia sesión para ver tu regalo🎁</p>
+        <form action="" class="px-10">
+            <div class="mt-4">
+                <label for="user" class="text-sm ml-[2px] text-slate-900 font-semibold">Usuario:</label>
+                <input type="text" name="user" class="w-full border bg-slate-100 border-slate-700 rounded-lg px-3 py-1 text-sm text-slate-900 font-medium focus:outline-none focus:border-slate-500" placeholder="Ingresa tu usuario" autocomplete="off">
+                <svg xmlns="http://www.w3.org/2000/svg" class="absolute mt-[-28px] ml-52 text-slate-700 icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0" /><path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" /></svg>
+            </div>
+            <div class="mt-4">
+                <label for="password" class="text-sm ml-[2px] text-slate-900 font-semibold">Contraseña:</label>
+                <input type="password" name="password" id="password" class="w-full border bg-slate-100 border-slate-700 rounded-lg px-3 py-1 text-sm font-medium text-slate-900 focus:outline-none" placeholder="Ingresa tu contraseña">
+                <svg xmlns="http://www.w3.org/2000/svg" class=" absolute mt-[-28px] ml-52 text-slate-700 icon icon-tabler icon-tabler-lock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 13a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v6a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2v-6z" /><path d="M11 16a1 1 0 1 0 2 0a1 1 0 0 0 -2 0" /><path d="M8 11v-4a4 4 0 1 1 8 0v4" /></svg>
+            </div>
+            <div class="mt-4">
+                <button type="submit" class=" transition-all ease-in-out w-full bg-purple-600 text-white rounded-lg px-2 py-2 text-base font-semibold hover:bg-purple-700 hover:scale-105">Iniciar sesión</button>
+            </div>
+        </form>
+    </div>
+</section>
+<style is:inline>
+    .balloons {
+        background-image: url('./public/img/bg-balloons3.png');
+        background-size:100%;
+        background-repeat: repeat;
+        animation: movimiento 4s alternate infinite;
+    }
+    @keyframes movimiento{
+        100%{
+            background-position: 0% 150%;
+        }
+    }
+    @media (max-width: 500px) {
+        .balloons {
+            background-image: url('./public/img/bg-balloons-cel2.png');
+            background-size: 100%;
+            background-repeat: no-repeat;
+        }
+        @keyframes movimiento{
+            100%{
+                background-position: 0% 120%;
+            }
+        }
+    }
+
+    input:focus + svg {
+        color: #9333ea;
+    }
+    input:hover + svg{
+        color: #9333ea;
+        transition: all 0.3s ease-in-out;
+    }
+</style>
+
+<script is:inline>
+    const user = "aleja"
+    const password = "hoycumplo21"
+
+    const form = document.querySelector('form')
+
+    form.addEventListener('submit', e => {
+        e.preventDefault()
+        const userValue = e.target.user.value
+        const passwordValue = e.target.password.value
+
+        if(userValue === user && passwordValue === password) {
+            window.location.href = '/home'
+        } else {
+            alert('Usuario o contraseña incorrectos')
+        }
+    })
+</script>
